@@ -82,9 +82,7 @@ protected:
 
 	
 	
-	//Varibales
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Health")
-	float Health = 10.0f;
+
 
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Component")

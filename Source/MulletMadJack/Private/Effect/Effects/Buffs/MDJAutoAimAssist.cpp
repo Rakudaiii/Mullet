@@ -11,14 +11,12 @@ void UMDJAutoAimAssist::ApplyEffect()
 {
 	Super::ApplyEffect();
 
-	
+
 	GetWorld()->GetTimerManager().SetTimer(
 		AutoAimTimerHandle,
 		this,
-		&UMDJAutoAimAssist::TickAutoAim,
-		TickRate,
-		true
-	);
+		&UMDJAutoAimAssist::TickAutoAim, TickRate,
+		true);
 }
 
 void UMDJAutoAimAssist::TickAutoAim()
@@ -28,12 +26,27 @@ void UMDJAutoAimAssist::TickAutoAim()
 
 	FRotator LookAtRot = UKismetMathLibrary::FindLookAtRotation(
 		MainCharacter->GetActorLocation(),
-		Target->GetActorLocation()
-	);
+		Target->GetActorLocation());
 
 	// Поворачиваем только yaw (в горизонтальной плоскости)
 	FRotator NewControlRot = MainCharacter->GetControlRotation();
 	NewControlRot.Yaw = LookAtRot.Yaw;
+
+	if (AController* Controller = MainCharacter->GetController())
+	{
+		Controller->SetControlRotation(NewControlRot);
+	}
+
+	if (AController* Controller = MainCharacter->GetController())
+	{
+		Controller->SetControlRotation(NewControlRot);
+	}
+
+
+	if (AController* Controller = MainCharacter->GetController())
+	{
+		Controller->SetControlRotation(NewControlRot);
+	}
 
 	if (AController* Controller = MainCharacter->GetController())
 	{

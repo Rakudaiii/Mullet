@@ -65,7 +65,7 @@ void AMDJMainCharacter::OnDead()
 
 void AMDJMainCharacter::InitializeComponets()
 {
-	HealthComponent->Initialize(Health);
+	//HealthComponent->Initialize(Health);
 }
 
 
